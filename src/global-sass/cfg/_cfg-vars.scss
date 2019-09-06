@@ -1,0 +1,134 @@
+/* Copyright (c) 2019 AXA Shared Services Spain S.A.
+Licensed under the AXA Shared Services Spain S.A. License (the
+"License"); you
+may not use this file except in compliance with the License.
+A copy of the License can be found in the LICENSE.TXT file distributed
+together with this file.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+//Main color AXA palette
+
+//blues palette
+$deep-sapphire : #00005b !global;//links:hover, buttons:hover
+$axa-blue : #00008f !global;     //links, texts, backgrounds, buttons, icons
+$st-tropaz : #2425aa !global;
+$azure : #3032c1 !global;        //texts
+$dark-indigo : #3b3fd8 !global;  //backgrounds
+$indigo : #494df4 !global;
+$ocean-blue : #4976BA !global;   //backgrounds
+
+//red palette
+$axa-red : #ff1721 !global;
+$flamingo : #ec4d33 !global;     //links:hover
+$burnt-sienna : #f07662 !global; //links
+
+//gray palette
+$mine-shaft : #333333 !global;   //texts
+$scorpion : #5f5f5f !global;
+$gray : #7f7f7f !global;
+$dusty-gray : #999999 !global;
+$silver : #cccccc !global;
+$mercury : #e5e5e5 !global;
+$wild-sand : #f5f5f5 !global;    //backgrounds
+$alabaster : #fafafa !global;
+$white : #ffffff !global;        //texts, backgrounds, buttons, icons
+
+//Secondary color AXA palette
+$igloo : #b5d0ee !global;
+$cotton-candy : #fad6de !global;
+$azalea : #f1afc6 !global;
+$aqua-green : #9fd9b4 !global;
+$logan : #9190ac !global;
+$greyjoy : #9fbeaf !global;
+$viridian-green : #668980 !global;
+$pacific : #00adc6 !global;
+$teal : #027180 !global;
+$acid : #f0ff93 !global;
+$dune : #fcd385 !global;
+$apache : #ddbe65 !global;
+$tosca : #914146 !global;
+
+$outer-space : #343c3f !global;  //header
+$amaranth : #f02849 !global;     //header
+
+//State color palette
+$malachite : #1cc54e !global;    //validator green
+$shy-tomato : #c91432 !global;   //validator red
+
+//border colors
+$border-table : 1px solid $silver !global;
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs :                  480px !global;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min :              $screen-xs !global;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone :               $screen-xs-min !global;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm :                  768px !global;
+$screen-sm-min :              $screen-sm !global;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet :              $screen-sm-min !global;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md :                  992px !global;
+$screen-md-min :              $screen-md !global;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop :             $screen-md-min !global;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg :                  1200px !global;
+$screen-lg-min :              $screen-lg !global;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop :          $screen-lg-min !global;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xxs-max :             ($screen-xs-min - 0.5) !global;
+$screen-xs-max :              ($screen-sm-min - 0.5) !global;
+$screen-sm-max :              ($screen-md-min - 0.5) !global;
+$screen-md-max :              ($screen-lg-min - 0.5) !global;
+
+$max-xxs :                    "(max-width: " $screen-xxs-max ")" !global;    
+$min-xs :                     "(min-width: " $screen-xs      ")" !global;
+$max-xs :                     "(max-width: " $screen-xs-max  ")" !global;
+$min-sm :                     "(min-width: " $screen-sm      ")" !global;
+$max-sm :                     "(max-width: " $screen-sm-max  ")" !global;
+$min-md :                     "(min-width: " $screen-md      ")" !global;
+$max-md :                     "(max-width: " $screen-md-max  ")" !global;
+$min-lg :                     "(min-width: " $screen-lg      ")" !global;
+
+//font family titles and margins
+$typo-title-font: 'Publico', 'Source Sans Pro', 'Arial', sans-serif !global;
+$typo-margins: false !global;
+
+//resizes in responsive mode like AXA guide lines
+$typo-resize: true !global;
+$button-resize: false !global;
+$links-resize: true !global;
+
+//forms
+$error-icons: false !global;
+
+//arabic language variables
+$ar-ltr: rtl !global;
+$ar-rtl: ltr !global;
+$ar-left: right !global;
+$ar-right: left !global;
+$ar-margin-left: margin-#{$ar-left} !global;
+$ar-margin-right: margin-#{$ar-right} !global;
+$ar-padding-left: padding-#{$ar-left} !global;
+$ar-padding-right: padding-ar-#{$ar-right} !global;
+

@@ -1,0 +1,940 @@
+/* Copyright (c) 2019 AXA Shared Services Spain S.A.
+Licensed under the AXA Shared Services Spain S.A. License (the
+"License"); you
+may not use this file except in compliance with the License.
+A copy of the License can be found in the LICENSE.TXT file distributed
+together with this file.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+@import 'cfg/cfg-vars';
+
+$inputs : "textarea, input[type='color'], input[type='date'], input[type='datetime'], input[type='datetime-local'], input[type='email'], input[type='month'], input[type='number'], input[type='password'], input[type='search'], input[type='select'], input[type='tel'], input[type='text'], input[type='time'], input[type='url'], input[type='week'], select, select.error-field, select.success-field, .uneditable-input";
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+.tooltip-help-group {
+    position: relative;
+
+    .icon-help {
+        display: block;
+        height: 15.5px;
+        width: 15.5px;
+        position: absolute;
+        right: 0;
+        top: -24px;
+        border: 1px solid $axa-blue;
+        text-align: center;
+        border-radius: 50%;
+        color: $axa-blue;
+        font-size: 11px;
+        line-height: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .box-help {
+        position: relative;
+        background: $axa-blue;
+        color: $white;
+        margin-top: 16px;
+        display: inline-block;
+        margin-left: -15px;
+        margin-right: -15px;
+        padding: 14px 14px 14px 43px;
+        z-index: 1;
+        font-size: 14px;
+
+        &:before {
+            content: "i";
+            display: block;
+            height: 15.5px;
+            width: 15.5px;
+            position: absolute;
+            border: 1px solid $white;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 11px;
+            line-height: 13px;
+            font-weight: bold;
+            cursor: default;
+            left: 14px;
+            z-index: 2;
+            color: white;
+            top: 13px;
+        }
+
+        &:after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: $axa-blue;
+            position: absolute;
+            right: 18px;
+            top: -5px;
+            transform: rotate(45deg);
+        }
+
+        &.aside {
+
+            &:after {
+                right: auto;
+                top: 15px;
+                left: -5px;
+                z-index: 1;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.password-group {
+    position: relative;
+
+    .icon-eye {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        right: 3px;
+        top: -23px;
+        background-color: $silver;
+        color: $white;
+        border-radius: 65% 25% 65% 25%;
+        transform: rotate(45deg);
+        padding: 0;
+
+        &:after {
+            content: "";
+            position: absolute;
+            background-color: $silver;
+            top: calc(50% - 3.5px);
+            right: calc(50% - 3.5px);
+            width: 7px;
+            height: 7px;
+            border: 2px solid $white;
+            border-radius: 50%;
+
+            .ie & {
+                border-width: 1px;
+            }
+
+            .firefox & {
+                border-width: 2px;
+            }
+
+            .chrome & {
+                border-width: 1.5px;
+            }
+        }
+
+        &.active {
+            background-color: $axa-blue;
+
+            &:after {
+                background-color: $axa-blue;
+            }
+        }
+    }
+}
+
+.ico-show-group {
+    position: relative;
+
+    .ico-show-container {
+        position: absolute;
+        top: -37px;
+        right: 0;
+        font-size: 18px;
+        cursor: pointer;
+
+        .svg-show {
+            margin-left: 10px;
+        }
+    }
+}
+
+.form-group {
+    border-width: 1px;
+    margin-bottom: 25px;
+
+    &.success {
+
+        .control-label,
+        .help-block,
+        .help-inline {
+            color: $mine-shaft;
+        }
+    }
+
+    &.disabled {
+
+        label {
+            color: $dusty-gray;
+        }
+
+        svg {
+            fill: $dusty-gray;
+        }
+
+        input, .select-styled {
+            opacity: 1;
+            cursor: default;
+            color: $dusty-gray;
+            border-color: $silver;
+            background-color: $wild-sand;
+            font-weight: normal;
+
+            &:hover, &:active, &:focus {
+                cursor: default;
+                color: $dusty-gray;
+                border-color: $silver;
+                background-color: $wild-sand;
+                font-weight: normal;
+            }
+        }
+
+        input::placeholder {
+            color: $dusty-gray;
+        }
+    }
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 9px;
+    color: $mine-shaft;
+    font-weight: 600;
+}
+
+#{$inputs} {
+    font-family: 'SourceSansPro', 'Arial', sans-serif;
+    padding: 12px 50px 12px 20px;
+    line-height: 1;
+}
+
+input[type='checkbox'] {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.smaller-inputs input {
+    padding: 5px 5px 5px 18px;
+}
+
+.input-checkbox-wrapper {
+
+    label {
+        padding-left: 37px;
+        font-weight: normal;
+        font-size: 14px;
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 15px;
+
+        &::before {
+            border: 1px solid $silver;
+            content: "";
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            display: inline-block;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            transition: all 0.2s ease;
+        }
+        &::after {
+            content: "";
+            display: block;
+            height: 8px;
+            width: 8px;
+            position: absolute;
+            left: 5px;
+            top: 7px;
+        }
+
+        &:hover, &.focus {
+            color: $axa-blue;
+
+            &:before, &:after {
+                border: 1px solid $axa-blue;
+            } 
+        }
+
+        &.disabled {
+            opacity: 1;
+            cursor: default;
+            color: $dusty-gray;
+
+            &:hover {
+
+                &:before {
+                    border-color: $silver;
+                }
+
+                &:after {
+                    border: none;
+                }
+            }
+        }
+    }
+
+    &.form-group.form-inline {
+        margin-bottom: 0;
+    }
+}
+
+.js-cutom-check-on {
+
+    label {
+
+        &:after {
+            background-color: $axa-blue;
+            transition: all 0.2s ease;
+        }
+
+        &.disabled:after {
+            background-color: $silver;
+        }
+    }
+}
+
+input[type='radio'] {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.radio {
+    padding-left: 0;
+    position: relative;
+
+    label {
+        padding-left: 37px;
+        font-weight: normal;
+        font-size: 14px;
+        margin-bottom: 15px;
+
+        &::before {
+            border: 1px solid $silver;
+            content: "";
+            width: 17px;
+            height: 17px;
+            box-sizing: border-box;
+            display: inline-block;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            border-radius: 15px;
+        }
+
+        &::after {
+            content: '';
+            width: 7px;
+            height: 7px;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            border-radius: 100%;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        &:hover, &.focus {
+            color: $axa-blue;
+            cursor: pointer;
+
+            &:before, &:after {
+                border: 1px solid $axa-blue;
+            } 
+        }
+
+        &.disabled {
+            opacity: 1;
+            cursor: default;
+            color: $dusty-gray;
+
+            &:hover {
+
+                &:before {
+                    border-color: $silver;
+                }
+
+                &:after{
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.js-cutom-radio-on {
+
+    label {
+
+        &:after {
+            border: 1px solid $axa-blue;
+            background: $axa-blue;
+        }
+
+        &.disabled:after {
+            border-color: $silver;
+            background: $silver;
+        }
+    }
+}
+
+.radio-box-group {
+    display: flex;
+
+    .radio {
+        display: inline-block;
+        flex-grow: 1;
+
+        label {
+            padding: 0;
+            border: 1px solid $silver;
+            background-color: $wild-sand;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: block;
+            text-transform: uppercase;
+
+            &:hover, &.focus {
+                border-color: $axa-blue;
+
+                svg {
+                    fill: $axa-blue;
+                }
+            }
+
+            &:before, &:after {
+                display: none;
+            }
+
+            &.disabled {
+                opacity: 1;
+                cursor: default;
+                color: $dusty-gray;
+                border-color: $silver;
+                background-color: $wild-sand;
+                font-weight: normal;
+
+                &:hover, &:active, &:focus {
+                    cursor: default;
+                    color: $dusty-gray;
+                    border-color: $silver;
+                    background-color: $wild-sand;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    .js-cutom-radio-on {
+
+        label {
+            border-color: $axa-blue;
+            background-color: $white;
+            color: $axa-blue;
+            font-weight: bold;
+
+            svg {
+                fill: $axa-blue;
+            }
+
+            &.disabled {
+                opacity: 1;
+                cursor: default;
+                color: $dusty-gray;
+                border-color: $silver;
+                background-color: $wild-sand;
+                font-weight: normal;
+
+                &:hover, &:active, &:focus {
+                    cursor: default;
+                    color: $dusty-gray;
+                    border-color: $silver;
+                    background-color: $wild-sand;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+.checkbox-box-group {
+    display: flex;
+
+    .check + .check {
+        margin-top: 10px;
+    }
+
+    .input-checkbox-wrapper {
+        display: inline-block;
+        flex-grow: 1;
+
+        label {
+            padding: 0;
+            border: 1px solid $silver;
+            background-color: $wild-sand;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: block;
+            text-transform: uppercase;
+
+            &.disabled {
+                opacity: 1;
+                cursor: default;
+                color: $dusty-gray;
+                border-color: $silver;
+                background-color: $wild-sand;
+                font-weight: normal;
+
+                &:hover, &:active, &:focus {
+                    cursor: default;
+                    color: $dusty-gray;
+                    border-color: $silver;
+                    background-color: $wild-sand;
+                    font-weight: normal;
+                }
+            }
+
+            &:hover, &.focus {
+                border-color: $axa-blue;
+
+                svg {
+                    fill: $axa-blue;
+                }
+            }
+
+            &:before, &:after {
+                display: none;
+            }
+        }
+    }
+
+    .js-cutom-check-on{
+
+        label {
+            border-color: $axa-blue;
+            background-color: $white;
+            color: $axa-blue;
+            font-weight: bold;
+
+            svg {
+                fill: $axa-blue;
+            }
+
+            &.disabled {
+                opacity: 1;
+                cursor: default;
+                color: $dusty-gray;
+                border-color: $silver;
+                background-color: $wild-sand;
+                font-weight: normal;
+
+                &:hover, &:active, &:focus {
+                    cursor: default;
+                    color: $dusty-gray;
+                    border-color: $silver;
+                    background-color: $wild-sand;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+.form-group {
+
+    .control-label, label {
+        color: $mine-shaft;
+    }
+}
+
+.fieldset, .fieldsetSelect {
+    overflow: visible;
+}
+
+.error-field {
+
+    &:focus, &:hover {
+        border: 1px solid $shy-tomato;
+        color: $shy-tomato;
+    }
+}
+
+.help-inline, .help-block, .invalid-feedback {
+    position: relative;
+
+    @if $error-icons {
+
+        &::before {
+            position: absolute;
+            top: -40px;
+            left: -21px;
+            color: $shy-tomato;
+            font-size: 30px;
+            font-weight: bold;
+            content: '\00d7';
+            font-size: 23px;
+        }
+    }
+}
+
+.select {
+    cursor: pointer;
+    position: relative;
+
+    .select-styled{
+        -moz-transition: border linear .2s,box-shadow linear .2s;
+        -o-transition: border linear .2s,box-shadow linear .2s;
+        -webkit-transition: border linear .2s,box-shadow linear .2s;        
+        border-radius: 0;
+        box-sizing: border-box;
+        font-family: 'SourceSansPro', 'Arial', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        height: 40px;
+        line-height: 1.3;
+        padding: 10px 50px 10px 20px;
+        transition: border linear .2s,box-shadow linear .2s;
+        vertical-align: 1.3;
+        width: 100%;
+        position: relative;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 9px;
+            height: 9px;
+            position: absolute;
+            top: calc(50% - 5px);
+            right: 11px;
+            border-bottom: 2px solid $axa-blue;
+            border-right: 2px solid $axa-blue;
+            transform: rotate(45deg);
+            border-radius: 1px;
+        }
+
+        &.error-select {
+            border: 1px solid $shy-tomato;
+            
+            @if $error-icons {
+                &::before{
+                    position: absolute;
+                    top: 6px;
+                    left: -26px;
+                    color: $shy-tomato;
+                    font-size: 29px;
+                    font-weight: 400;
+                    font-family: 'SourceSansPro-Regular', 'Arial', sans-serif;
+                    content: '\00d7';
+                    font-size: 23px;
+                    transform: scaleX(1.4);                
+                }
+            }
+        }
+
+
+
+        &.active, &.focus {
+            border-color: $axa-blue;
+        }
+    }
+
+    .select-hidden {
+        height: 0;
+        padding: 0;
+        border-width: 0;
+    }
+}
+
+.box-fieldset .select .error-select-text{
+    color: $shy-tomato;
+}
+
+
+//Option List Custom Select
+
+.select-options{
+    position: absolute;
+    width: 100%;
+    display: none;
+    color: $dusty-gray;
+    font-family: "SourceSansPro-Regular", sans-serif;
+    border: 1px solid $silver;
+    overflow: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    background-color: $white;
+    top: 40px;
+    border-bottom-width: 2px;
+    padding-left: 0;
+
+    li {     
+        padding: 10px 20px 10px 20px;
+        line-height: 20px;
+
+        &:hover {
+            background: $alabaster;
+            color: $axa-blue;
+            border: none;
+        }
+    }
+}
+
+.range-group {
+    /* CSS by Steven Estrella. http://www.stevenestrella.com */
+    /* The .slider and .slidervertical classes are for the range inputs. 
+        Set the z-index high so its on top. */
+    .slider,
+    .slidervertical {
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: visible;
+        z-index: 100;
+    }
+    /* slidershell exists only
+    to provide a positioning context for the range input and other elements.*/
+
+    .slidershell {
+        border: 0 none;
+        position: relative;
+        left: 0;
+        top: 0;
+        overflow: visible;
+    }
+    /* .slidertrack is the visible track on which the user drags the thumb button. */
+
+    .slidertrack {
+        border-radius: 4px;
+        position: absolute;
+        background-color: $silver;
+    }
+    /* .sliderfill adds color (or a gradient as seen here) to the track as the user 
+        drags the thumb. */
+
+    .sliderfill {
+        border-radius: 4px;
+        position: absolute;
+        pointer-events: none;
+        background: $axa-blue;
+        z-index: 1;
+    }
+    /* .sliderthumb can be any css you like including an image. 
+        The dimensions must match those found in the rule for 
+        input[type=range]::-webkit-slider-thumb. */
+
+    .sliderthumb {
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        background-size: 40px 40px;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-color: $white;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 0 none;
+        padding: 0;
+        margin: -1px 0 0;
+        text-align: center;
+        pointer-events: none;
+        box-shadow: 0 0 10px;
+        border-radius: 25px;
+        z-index: 2;
+    }
+    /* .slidervalue can be styled as you see fit */
+
+    .slidervalue {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        color: $mine-shaft;
+        font-family: helvetica, sans-serif;
+        font-size: 16px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 0 none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        pointer-events: none;
+        z-index:2;
+    }
+    /* First we have to make transparent all the default elements of the range input.
+        We use color:transparent to eliminate the default tick marks in IE. */
+
+    input[type=range]::-ms-track {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: none;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        background: transparent;
+        color: transparent;
+        overflow: visible;
+    }
+
+    input[type=range]::-moz-range-track {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        -moz-appearance: none;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        background: transparent;
+        color: transparent;
+        overflow: visible;
+    }
+
+    input[type=range] {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: none;
+        margin: 0;
+        padding: 0;
+        border: 0 none;
+        background: transparent;
+        color: transparent;
+        overflow: visible;
+    }
+    /* we need a separate rule for when the range input is to be vertical */
+
+    input[type=range].slidervertical {
+        -webkit-appearance: slider-vertical;
+        writing-mode: bt-lr;
+        /* IE */
+        
+        opacity: 0.01;
+        /* needed to hide the default slider-vertical appearance */
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        background: transparent;
+        border: transparent;
+    }
+
+    input[type=range]:focus {
+        outline: none;
+    }
+    /* Make the thumbs the same size as your custom sliderthumb. 
+        they will not be visible but they will be draggable. 	*/
+
+    input[type=range]::-ms-thumb {
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        border: 0 none;
+        background: transparent;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        border: 0 none;
+        background: transparent;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        border: 0 none;
+        background: transparent;
+        -webkit-appearance: none;
+    }
+    /* microsoft IE10+ and Edge - eliminates default fills before and after thumb */
+
+    input[type=range]::-ms-fill-lower {
+        background: transparent;
+        border: 0 none;
+    }
+
+    input[type=range]::-ms-fill-upper {
+        background: transparent;
+        border: 0 none;
+    }
+
+    input[type=range]::-ms-tooltip {
+        display: none;
+    }
+    /* other rules you may need for page styling */
+
+    body {
+        font-family: sans-serif;
+    }
+
+    .slider2column,
+    td,
+    tr,
+    th {
+        width: 400px;
+        border: 0 none !important;
+    }
+}
+
+.form-error {
+    color: $shy-tomato;
+}
+
+.errors-spaces-fixed {
+
+    .top-error {
+        margin-top: -30px;
+    }
+
+    &.modal-body {
+
+        .top-error {
+            margin-top: -21px;
+        }
+    }
+
+    .form-error {
+        position: absolute;
+        margin-top: 2px;
+    }
+
+    .text-center {
+
+        .form-error, &.form-error {
+            width:100%;
+            left: 0;
+        }
+    }
+
+    .input-checkbox-wrapper .form-error {
+        margin-top: -12px;
+        padding-left: 37px;
+    }
+}

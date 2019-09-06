@@ -1,0 +1,33 @@
+.bg-dashboard {
+
+    &:before {
+        background-image: url('/AssetsDashboard.svg');
+    }
+
+    &:after {
+        background-image: url('/AssetsDashboard.svg');
+    }
+}
+
+.dashboard {
+    width: 100%;
+    opacity: 0;
+    transform: scale(0);
+    transition-property: all;
+    transition-duration: 1s;
+    transition-delay: 1000ms;
+
+    .loaded & {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .banner {
+        background-image: url('/AssetsDashboard.jpg');
+        background-size: cover;
+    }
+
+    .select-styled {
+        padding: 10px 20px 10px 20px; 
+    }
+}

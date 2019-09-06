@@ -1,0 +1,27 @@
+@import '../global-sass/cfg/cfg-vars';
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.box {
+    border-top: 2px solid $indigo;
+    background: $st-tropaz;
+    animation: opacity 1s;
+}
+
+.text {
+    font-family: 'Source Sans Pro', 'Arial', sans-serif;
+    font-size: 13px;
+    letter-spacing: .08em;
+    box-sizing: border-box;
+    color: hsla(0, 0, 80%, .5);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

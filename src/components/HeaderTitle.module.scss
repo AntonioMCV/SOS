@@ -1,0 +1,47 @@
+@import '../global-sass/cfg/cfg-vars';
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+.component {
+  border-bottom: 1px solid $mercury;
+
+  @media #{$max-sm} {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  @media #{$min-md} {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.title {
+  animation: opacity 1s;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.configuration {
+  fill: black;
+  cursor: pointer;
+  animation: opacity2 1s;
+}

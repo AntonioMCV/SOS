@@ -1,0 +1,29 @@
+.bg-config {
+
+    &:before {
+        background-image: url("/AssetConfig.svg");
+    }
+
+    &:after {
+        background-image: url("/AssetConfig.svg");
+    }
+}
+
+.config {
+    opacity: 0;
+    transform: scale(0);
+    transition-property: all;
+    transition-duration: 1s;
+    transition-delay: 1000ms;
+
+    .loaded & {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .buttonplus {
+        position: absolute;
+        top: 42px;
+        line-height: 15px;
+    }
+}
